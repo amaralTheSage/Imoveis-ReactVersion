@@ -53,9 +53,12 @@ function PropertyCard({ imovel }) {
     currency: "BRL",
   });
 
+  {
+    /*w-[300px] min-[400px]:w-[380px] min-[500px]:w-[450px] lg:w-[280px] min-[850px]:w-[400px]xl:w-[300px] */
+  }
   return (
     <Link to={"/imovel"}>
-      <div className="w-[300px] min-[400px]:w-[380px] min-[500px]:w-[450px] rounded-md shadow-md my-2 min-[850px]:w-[400px] xl:w-[300px] lg:w-[280px] text-lg">
+      <div className="rounded-md shadow-md my-2 text-lg">
         <img src={imovel.imgs[0]} className="rounded-t-md" />
         <div className="p-2 flex flex-col gap-1">
           <div className="flex justify-between">

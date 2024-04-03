@@ -8,13 +8,13 @@ export default function Publicar({ isAdmin }) {
   return (
     <>
       <Header isAdmin={isAdmin} />
-      <div className="flex justify-center my-3">
+
+      <div className="max-w-[90vw] lg:max-w-[50vw] m-auto">
+        <h3 className="font-medium text-2xl mb-3">Novo Imóvel:</h3>
         <form
           action=""
-          className="flex flex-col w-[80vw] items-center gap-4 text-light-gray"
+          className="grid grid-cols-1 md:grid-cols-2 items-center gap-4 text-light-gray"
         >
-          <h3 className="font-medium text-2xl mb-3">Novo Imóvel:</h3>
-
           <div>
             <label
               htmlFor="nome"
@@ -30,7 +30,7 @@ export default function Publicar({ isAdmin }) {
             />
           </div>
 
-          <div>
+          <div className="xl:row-span-2 h-max">
             <label
               htmlFor="descricao"
               className="text-light-gray font-light text-lg"
@@ -41,7 +41,7 @@ export default function Publicar({ isAdmin }) {
               type="text"
               required
               id="descricao"
-              className="block border border-orange border-opacity-50 rounded-[4px] px-2 py-1 w-full "
+              className="block border border-orange border-opacity-50 rounded-[4px] px-2 py-1 w-full xl:h-28"
             />
           </div>
 
@@ -109,27 +109,16 @@ export default function Publicar({ isAdmin }) {
             <label htmlFor="tipo" className="col-span-2 text-light-gray">
               Tipo de Imóvel:
             </label>
-            <div className="flex gap-3">
-              {" "}
-              <input type="checkbox" id="tipo" value={0} />
-              <p>Casa</p>
-            </div>
-            <div className="flex gap-3">
-              {" "}
-              <input type="checkbox" id="tipo" value={1} />
-              <p>Apartamento</p>
-            </div>
-            <div className="flex gap-3">
-              {" "}
-              <input type="checkbox" id="tipoTerreno" value={2} />
-              <p>Terreno</p>
-            </div>
-
-            <div className="flex gap-3">
-              {" "}
-              <input type="checkbox" id="tipoCampo" value={3} />
-              <p>Campo</p>
-            </div>
+            <select
+              name="tipo"
+              id="tipo"
+              className="border w-full  p-1 rounded-sm"
+            >
+              <option value="casa">Casa</option>
+              <option value="casa">Apartamento</option>
+              <option value="casa">Terreno</option>
+              <option value="casa">Campo</option>
+            </select>
           </div>
 
           <div>
@@ -186,11 +175,10 @@ export default function Publicar({ isAdmin }) {
               className="text-light-gray font-light text-lg flex flex-wrap"
             />
           </div>
-          <div className="w-screen flex justify-end ">
-            <button className="text-white bg-orange p-2  mx-4 px-5 rounded-md font-medium">
-              Publicar
-            </button>
-          </div>
+
+          <button className="text-white bg-orange p-3 my-3  rounded-md font-medium">
+            Publicar
+          </button>
         </form>
       </div>
       <Footer />
