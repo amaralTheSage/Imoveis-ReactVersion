@@ -8,6 +8,9 @@ export default {
         "dark-gray": "#4E4E4E",
         "light-gray": "#A6A6A6",
       },
+      backgroundImage: {
+        hero: ["url('/hero.png')"],
+      },
     },
   },
   plugins: [],

@@ -100,7 +100,7 @@ export default function PaginaImovel({ imoveis, imovel, isAdmin, BRL }) {
               </a>
               <a href="">
                 <img src="#" alt="" />
-                janice@gmail.com
+                emailabcd@hotmail.com
               </a>
 
               {isAdmin && (

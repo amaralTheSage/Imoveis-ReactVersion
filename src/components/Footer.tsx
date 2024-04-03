@@ -10,13 +10,13 @@ function Footer() {
     >
       <div className="flex flex-col items-center lg:flex-row   ">
         <img src={viteSvg} className="w-12 lg:w-14" />
-        <h4 className="text-2xl">Coisa Janice</h4>
+        <h4 className="text-2xl">Coisa</h4>
       </div>
 
       <nav className="text-light-gray font-normal text-center flex flex-col gap-4 m-3 lg:text-right">
         <p>Contatos:</p>
         <a href="">WhatsApp: (53) 9984264893</a>
-        <a href="">Email: vergarajanice@hotmail.com</a>
+        <a href="">Email: emailabcd@hotmail.com</a>
         <p className="text-light-gray">CRECI: 049330190</p>
         <Link
           to={"/login"}

@@ -30,7 +30,7 @@ export default function Publicar({ isAdmin }) {
             />
           </div>
 
-          <div className="xl:row-span-2 h-max">
+          <div className="md:row-span-2 h-max">
             <label
               htmlFor="descricao"
               className="text-light-gray font-light text-lg"
@@ -41,7 +41,7 @@ export default function Publicar({ isAdmin }) {
               type="text"
               required
               id="descricao"
-              className="block border border-orange border-opacity-50 rounded-[4px] px-2 py-1 w-full xl:h-28"
+              className="block border border-orange border-opacity-50 rounded-[4px] px-2 py-1 w-full md:h-28"
             />
           </div>
 
@@ -172,7 +172,7 @@ export default function Publicar({ isAdmin }) {
             <input
               type="file"
               id="imgs"
-              className="text-light-gray font-light text-lg flex flex-wrap"
+              className="text-light-gray font-light text-lg flex flex-wrap "
             />
           </div>
 
