@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import viteSvg from "../public/vite.svg";
+import viteSvg from "../assets/house.png";
 
 export default function Header({ isAdmin }) {
   return (
     <header className="flex justify-between px-4 py-5 text-xl lg:text-md">
       <Link to={"/"}>
         <div className="flex items-center gap-2 font-semibold">
-          <img src={viteSvg} className="w-6" /> Coisa
+          <img src={viteSvg} className="w-7" /> Central Imóveis
         </div>
       </Link>
       <div>
