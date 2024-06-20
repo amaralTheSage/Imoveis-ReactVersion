@@ -4,10 +4,10 @@ import Footer from "../components/Footer";
 import { Field, Form, Formik, useFormik } from "formik";
 import * as Yup from "yup";
 
-export default function Publicar({ isAdmin }) {
+export default function Publicar({ isLoggedIn }) {
   return (
     <>
-      <Header isAdmin={isAdmin} />
+      <Header isLoggedIn={isLoggedIn} />
 
       <div className="max-w-[90vw] lg:max-w-[50vw] m-auto">
         <h3 className="font-medium text-2xl mb-3">Novo Imóvel:</h3>
@@ -37,12 +37,18 @@ export default function Publicar({ isAdmin }) {
             >
               Descrição :
             </label>
-            <input
+            {/* <input
               type="text"
               required
               id="descricao"
               className="block border border-orange border-opacity-50 rounded-[4px] px-2 py-1 w-full md:h-28"
-            />
+            /> */}
+            <textarea
+              id="descricao"
+              cols={30}
+              rows={5}
+              className="block border border-orange border-opacity-50 rounded-[4px] px-2 py-1 w-full md:h-28"
+            ></textarea>
           </div>
 
           <div>

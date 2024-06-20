@@ -4,10 +4,10 @@ import FilterSection from "../components/FilterSection";
 import Header from "../components/Header";
 import PropertyCard from "../components/PropertyCard";
 
-export default function Home({ imoveis, isAdmin }) {
+export default function Home({ imoveis, isLoggedIn }) {
   return (
     <>
-      <Header isAdmin={isAdmin} />
+      <Header isLoggedIn={isLoggedIn} />
       <FilterSection />
       <div className="lg:max-w-[80%] m-auto">
         <h2 className="text-center mt-5 text-3xl font-medium px-4 ">

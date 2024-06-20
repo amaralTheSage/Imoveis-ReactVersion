@@ -6,6 +6,7 @@ import imgImovel from "./assets/imgImóvel.png";
 import { useState } from "react";
 import Login from "./pages/Login";
 import Publicar from "./pages/Publicar";
+import Register from "./pages/Register";
 
 const imoveis = [
   {
@@ -174,7 +175,7 @@ const imoveis = [
 ];
 
 function App() {
-  const [isAdmin, setIsAdmin] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const BRL = new Intl.NumberFormat("pt-BR", {
     style: "currency",
     currency: "BRL",
@@ -186,7 +187,7 @@ function App() {
         <Routes>
           <Route
             path="/"
-            element={<Home imoveis={imoveis} isAdmin={isAdmin} />}
+            element={<Home imoveis={imoveis} isLoggedIn={isLoggedIn} />}
           />
           <Route
             path="/imovel"
@@ -194,14 +195,25 @@ function App() {
               <PaginaImovel
                 imoveis={imoveis}
                 imovel={imoveis[0]}
-                isAdmin={isAdmin}
+                isLoggedIn={isLoggedIn}
                 BRL={BRL}
               />
             }
           />
-          <Route path="/login" element={<Login onSetIsAdmin={setIsAdmin} />} />
+          <Route
+            path="/login"
+            element={<Login onSetIsLoggedIn={setIsLoggedIn} />}
+          />
 
-          <Route path="/publicar" element={<Publicar isAdmin={isAdmin} />} />
+          <Route
+            path="/register"
+            element={<Register onSetIsAdmin={setIsLoggedIn} />}
+          />
+
+          <Route
+            path="/publicar"
+            element={<Publicar isLoggedIn={isLoggedIn} />}
+          />
         </Routes>
       </BrowserRouter>
     </>

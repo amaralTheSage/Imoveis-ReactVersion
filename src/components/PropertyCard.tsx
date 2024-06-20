@@ -35,6 +35,10 @@ interface Imovel {
   condominio?: number;
 }
 
+interface ImovelProps {
+  imovel: Imovel;
+}
+
 function CheckTipo(tipo: number) {
   if (tipo === 0) {
     return "Casa";
@@ -47,7 +51,7 @@ function CheckTipo(tipo: number) {
   }
 }
 
-function PropertyCard({ imovel }) {
+function PropertyCard({ imovel }: ImovelProps) {
   const BRL = Intl.NumberFormat("pt-BR", {
     style: "currency",
     currency: "BRL",
@@ -58,7 +62,7 @@ function PropertyCard({ imovel }) {
   }
   return (
     <Link to={"/imovel"}>
-      <div className="rounded-md shadow-md my-2 text-lg">
+      <div className="rounded-md shadow-md my-2 text-lg lg:min-h-[445px]">
         <img src={imovel.imgs[0]} className="rounded-t-md" />
         <div className="p-2 flex flex-col gap-1">
           <div className="flex justify-between">

@@ -10,10 +10,10 @@ import rulerIcon from "../public/ruler-icon.png";
 import mapIcon from "../public/map-icon.svg";
 import { Link } from "react-router-dom";
 
-export default function PaginaImovel({ imoveis, imovel, isAdmin, BRL }) {
+export default function PaginaImovel({ imoveis, imovel, isLoggedIn, BRL }) {
   return (
     <>
-      <Header isAdmin={isAdmin} />
+      <Header isLoggedIn={isLoggedIn} />
 
       {/*wrapper */}
       <main className="lg:max-w-[80%] m-auto lg:mt-12 ">
@@ -103,7 +103,7 @@ export default function PaginaImovel({ imoveis, imovel, isAdmin, BRL }) {
                 emailabcd@hotmail.com
               </a>
 
-              {isAdmin && (
+              {isLoggedIn && (
                 <p className="bg-orange text-white w-min py-1 px-6 rounded-md mt-2">
                   Deletar
                 </p>
