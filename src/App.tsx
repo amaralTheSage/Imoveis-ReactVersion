@@ -18,7 +18,7 @@ function App() {
 
   const [imoveis, setImoveis] = useState([]);
   const [aprovados, setAprovados] = useState([]);
-  const [isAdmin, setIsAdmin] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(true);
 
   useEffect(() => {
     if (localStorage.getItem("imoveisStorage")) {
@@ -53,7 +53,14 @@ function App() {
           />
           <Route
             path="/reviewPosts"
-            element={<AdminApprovalPage isLoggedIn={isLoggedIn} />}
+            element={
+              <AdminApprovalPage
+                isLoggedIn={isLoggedIn}
+                aprovados={aprovados}
+                imoveis={imoveis}
+                onSetAprovados={setAprovados}
+              />
+            }
           />
           <Route
             path="/login"

@@ -12,6 +12,7 @@ export default function Publicar({ isLoggedIn, imoveis, onSetImoveis }) {
   function registerProperty(data) {
     const properties = [...imoveis];
     properties.push({
+      id: crypto.randomUUID(),
       nome: data.nome,
       tipo: data.tipo,
       bairro: data.bairro,
