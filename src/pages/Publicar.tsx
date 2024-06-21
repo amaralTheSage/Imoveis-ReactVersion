@@ -3,8 +3,38 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Field, Form, Formik, useFormik } from "formik";
 import * as Yup from "yup";
+import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 
-export default function Publicar({ isLoggedIn }) {
+export default function Publicar({ isLoggedIn, imoveis, onSetImoveis }) {
+  const { register, handleSubmit, reset, setFocus } = useForm();
+
+  function registerProperty(data) {
+    const properties = [...imoveis];
+    properties.push({
+      nome: data.nome,
+      tipo: data.tipo,
+      bairro: data.bairro,
+      cidade: data.cidade,
+      descricao: data.descricao,
+      imgs: [data.img],
+      metragem: data.metragem,
+      quartos: data.quartos,
+      banheiros: data.banheiros,
+      vagas: data.vagas,
+      precoVenda: data.precoVenda,
+      precoAluguel: data.precoAluguel,
+      condominio: data.condominio,
+    });
+
+    onSetImoveis(properties);
+    setFocus("nome");
+    reset();
+
+    localStorage.setItem("imoveisStorage", JSON.stringify(properties));
+    toast.success("Imovel cadastrado com Sucesso");
+  }
+
   return (
     <>
       <Header isLoggedIn={isLoggedIn} />
@@ -14,6 +44,7 @@ export default function Publicar({ isLoggedIn }) {
         <form
           action=""
           className="grid grid-cols-1 md:grid-cols-2 items-center gap-4 text-light-gray"
+          onSubmit={handleSubmit(registerProperty)}
         >
           <div>
             <label
@@ -26,6 +57,7 @@ export default function Publicar({ isLoggedIn }) {
               type="text"
               required
               id="nome"
+              {...register("nome")}
               className="block border border-orange border-opacity-50 rounded-[4px] px-2 py-1 w-full "
             />
           </div>
@@ -47,8 +79,24 @@ export default function Publicar({ isLoggedIn }) {
               id="descricao"
               cols={30}
               rows={5}
+              {...register("descricao")}
               className="block border border-orange border-opacity-50 rounded-[4px] px-2 py-1 w-full md:h-28"
             ></textarea>
+          </div>
+          <div>
+            <label
+              htmlFor="bairro"
+              className="text-light-gray font-light text-lg"
+            >
+              Bairro :
+            </label>
+            <input
+              type="text"
+              required
+              id="bairro"
+              {...register("bairro")}
+              className="block border border-orange border-opacity-50 rounded-[4px] px-2 py-1 w-full "
+            />
           </div>
 
           <div>
@@ -61,6 +109,7 @@ export default function Publicar({ isLoggedIn }) {
             <input
               type="number"
               required
+              {...register("metragem")}
               id="metragem"
               className="block border border-orange border-opacity-50 rounded-[4px] px-2 py-1 w-full "
             />
@@ -76,6 +125,7 @@ export default function Publicar({ isLoggedIn }) {
             <input
               type="number"
               required
+              {...register("quartos")}
               id="quartos"
               className="block border border-orange border-opacity-50 rounded-[4px] px-2 py-1 w-full "
             />
@@ -92,6 +142,7 @@ export default function Publicar({ isLoggedIn }) {
               type="number"
               required
               id="banheiros"
+              {...register("banheiros")}
               className="block border border-orange border-opacity-50 rounded-[4px] px-2 py-1 w-full "
             />
           </div>
@@ -107,6 +158,7 @@ export default function Publicar({ isLoggedIn }) {
               type="number"
               required
               id="vagas"
+              {...register("vagas")}
               className="block border border-orange border-opacity-50 rounded-[4px] px-2 py-1 w-full "
             />
           </div>
@@ -116,14 +168,14 @@ export default function Publicar({ isLoggedIn }) {
               Tipo de Imóvel:
             </label>
             <select
-              name="tipo"
               id="tipo"
               className="border w-full  p-1 rounded-sm"
+              {...register("tipo")}
             >
-              <option value="casa">Casa</option>
-              <option value="casa">Apartamento</option>
-              <option value="casa">Terreno</option>
-              <option value="casa">Campo</option>
+              <option value="0">Casa</option>
+              <option value="1">Apartamento</option>
+              <option value="2">Terreno</option>
+              <option value="3">Campo</option>
             </select>
           </div>
 
@@ -137,6 +189,7 @@ export default function Publicar({ isLoggedIn }) {
             <input
               type="number"
               id="precoVenda"
+              {...register("precoVenda")}
               className="block border border-orange border-opacity-50 rounded-[4px] px-2 py-1 w-full "
             />
           </div>
@@ -150,6 +203,7 @@ export default function Publicar({ isLoggedIn }) {
             <input
               type="number"
               id="precoAluguel"
+              {...register("precoAluguel")}
               className="block border border-orange border-opacity-50 rounded-[4px] px-2 py-1 w-full "
             />
           </div>
@@ -164,6 +218,7 @@ export default function Publicar({ isLoggedIn }) {
             <input
               type="number"
               id="condominio"
+              {...register("precoCondominio")}
               className="block border border-orange border-opacity-50 rounded-[4px] px-2 py-1 w-full "
             />
           </div>
@@ -176,9 +231,10 @@ export default function Publicar({ isLoggedIn }) {
               Imagens :
             </label>
             <input
-              type="file"
-              id="imgs"
-              className="text-light-gray font-light text-lg flex flex-wrap "
+              type="text"
+              id="img"
+              {...register("img")}
+              className="block border border-orange border-opacity-50 rounded-[4px] px-2 py-1 w-full "
             />
           </div>
 

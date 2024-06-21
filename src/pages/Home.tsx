@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Footer from "../components/Footer";
 import FilterSection from "../components/FilterSection";
 import Header from "../components/Header";
 import PropertyCard from "../components/PropertyCard";
 
-export default function Home({ imoveis, isLoggedIn }) {
+export default function Home({ isLoggedIn, imoveis }) {
   return (
     <>
       <Header isLoggedIn={isLoggedIn} />
@@ -15,7 +15,7 @@ export default function Home({ imoveis, isLoggedIn }) {
         </h2>
         <section className="grid grid-flexivel gap-3 mx-8 lg:mx-0">
           {imoveis.map((i) => {
-            return <PropertyCard imovel={i} key={i.id} />;
+            return <PropertyCard imovel={i} />;
           })}
         </section>
       </div>

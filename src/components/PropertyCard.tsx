@@ -19,7 +19,7 @@ import { Link } from "react-router-dom";
 //   },
 // ];
 
-interface Imovel {
+type Imovel = {
   id: number;
   nome: string;
   tipo: number;
@@ -33,20 +33,20 @@ interface Imovel {
   precoVenda?: number;
   precoAluguel?: number;
   condominio?: number;
-}
+};
 
 interface ImovelProps {
   imovel: Imovel;
 }
 
 function CheckTipo(tipo: number) {
-  if (tipo === 0) {
+  if (tipo == 0) {
     return "Casa";
-  } else if (tipo === 1) {
+  } else if (tipo == 1) {
     return "Apartamento";
-  } else if (tipo === 2) {
+  } else if (tipo == 2) {
     return "Terreno";
-  } else if (tipo === 3) {
+  } else if (tipo == 3) {
     return "Campo";
   }
 }
@@ -62,8 +62,11 @@ function PropertyCard({ imovel }: ImovelProps) {
   }
   return (
     <Link to={"/imovel"}>
-      <div className="rounded-md shadow-md my-2 text-lg lg:min-h-[445px]">
-        <img src={imovel.imgs[0]} className="rounded-t-md" />
+      <div className="rounded-md shadow-md my-2 text-lg min-h-[410px] lg:min-h-[445px]">
+        <img
+          src={imovel.imgs[0]}
+          className="rounded-t-md w-full object-cover aspect-[14/9]"
+        />
         <div className="p-2 flex flex-col gap-1">
           <div className="flex justify-between">
             <span className="text-light-gray font-light">
@@ -88,7 +91,6 @@ function PropertyCard({ imovel }: ImovelProps) {
               {imovel.precoAluguel && "Preço de Aluguel"}
             </span>
             <span>
-              {" "}
               {imovel.precoAluguel && BRL.format(imovel.precoAluguel)}
             </span>
           </div>

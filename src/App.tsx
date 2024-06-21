@@ -3,176 +3,12 @@ import { Route, Routes } from "react-router";
 import { BrowserRouter } from "react-router-dom";
 import PaginaImovel from "./pages/PaginaImovel";
 import imgImovel from "./assets/imgImóvel.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Login from "./pages/Login";
 import Publicar from "./pages/Publicar";
 import Register from "./pages/Register";
 
-const imoveis = [
-  {
-    id: 1,
-    nome: "Casa à venda no Amarilis",
-    tipo: 0,
-    bairro: "Laranjal",
-    cidade: "Pelotas, RS",
-    descricao:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id porta lacus, non accumsan nunc. Praesent eu odio enim. Vivamus at semper ex. Vivamus in orci at lacus aliquet lacinia. Nunc hendrerit sagittis vulputate. Aenean pharetra tortor at magna pharetra auctor. Donec non nunc et arcu ornare tempor. Etiam ac leo neque. ",
-    imgs: [imgImovel, imgImovel, imgImovel, imgImovel, imgImovel, imgImovel],
-    metragem: 60,
-    quartos: 2,
-    banheiros: 1,
-    vagas: 2,
-    precoVenda: 300000,
-    condominio: 200,
-  },
-  {
-    id: 2,
-    nome: "Casa à venda no Amarilis",
-    tipo: 1,
-    bairro: "Laranjal",
-    cidade: "Pelotas, RS",
-    descricao:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id porta lacus, non accumsan nunc. Praesent eu odio enim. Vivamus at semper ex. Vivamus in orci at lacus aliquet lacinia. Nunc hendrerit sagittis vulputate. Aenean pharetra tortor at magna pharetra auctor. Donec non nunc et arcu ornare tempor. Etiam ac leo neque. ",
-    imgs: [imgImovel, imgImovel, imgImovel, imgImovel],
-    metragem: 60,
-    quartos: 2,
-    banheiros: 1,
-    vagas: 2,
-    precoAluguel: 1234,
-    condominio: 200,
-  },
-  {
-    id: 3,
-    nome: "Casa à venda no Amarilis",
-    tipo: 0,
-    bairro: "Laranjal",
-    cidade: "Pelotas, RS",
-    descricao:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id porta lacus, non accumsan nunc. Praesent eu odio enim. Vivamus at semper ex. Vivamus in orci at lacus aliquet lacinia. Nunc hendrerit sagittis vulputate. Aenean pharetra tortor at magna pharetra auctor. Donec non nunc et arcu ornare tempor. Etiam ac leo neque. ",
-    imgs: [imgImovel, imgImovel, imgImovel, imgImovel],
-    metragem: 60,
-    quartos: 2,
-    banheiros: 1,
-    vagas: 2,
-    precoVenda: 300000,
-    precoAluguel: 1000,
-    condominio: 200,
-  },
-  {
-    id: 4,
-    nome: "Casa à venda no Amarilis",
-    tipo: 0,
-    bairro: "Laranjal",
-    cidade: "Pelotas, RS",
-    descricao:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id porta lacus, non accumsan nunc. Praesent eu odio enim. Vivamus at semper ex. Vivamus in orci at lacus aliquet lacinia. Nunc hendrerit sagittis vulputate. Aenean pharetra tortor at magna pharetra auctor. Donec non nunc et arcu ornare tempor. Etiam ac leo neque. ",
-    imgs: [imgImovel, imgImovel, imgImovel, imgImovel],
-    metragem: 60,
-    quartos: 2,
-    banheiros: 1,
-    vagas: 2,
-    precoVenda: 300000,
-    condominio: 200,
-  },
-  {
-    id: 5,
-    nome: "Casa à venda no Amarilis",
-    tipo: 0,
-    bairro: "Laranjal",
-    cidade: "Pelotas, RS",
-    descricao:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id porta lacus, non accumsan nunc. Praesent eu odio enim. Vivamus at semper ex. Vivamus in orci at lacus aliquet lacinia. Nunc hendrerit sagittis vulputate. Aenean pharetra tortor at magna pharetra auctor. Donec non nunc et arcu ornare tempor. Etiam ac leo neque. ",
-    imgs: [imgImovel, imgImovel, imgImovel, imgImovel],
-    metragem: 60,
-    quartos: 2,
-    banheiros: 1,
-    vagas: 2,
-    precoVenda: 300000,
-    condominio: 200,
-  },
 
-  {
-    id: 6,
-    nome: "Casa à venda no Amarilis",
-    tipo: 0,
-    bairro: "Laranjal",
-    cidade: "Pelotas, RS",
-    descricao:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id porta lacus, non accumsan nunc. Praesent eu odio enim. Vivamus at semper ex. Vivamus in orci at lacus aliquet lacinia. Nunc hendrerit sagittis vulputate. Aenean pharetra tortor at magna pharetra auctor. Donec non nunc et arcu ornare tempor. Etiam ac leo neque. ",
-    imgs: [imgImovel, imgImovel, imgImovel, imgImovel, imgImovel, imgImovel],
-    metragem: 60,
-    quartos: 2,
-    banheiros: 1,
-    vagas: 2,
-    precoVenda: 300000,
-    condominio: 200,
-  },
-  {
-    id: 7,
-    nome: "Casa à venda no Amarilis",
-    tipo: 1,
-    bairro: "Laranjal",
-    cidade: "Pelotas, RS",
-    descricao:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id porta lacus, non accumsan nunc. Praesent eu odio enim. Vivamus at semper ex. Vivamus in orci at lacus aliquet lacinia. Nunc hendrerit sagittis vulputate. Aenean pharetra tortor at magna pharetra auctor. Donec non nunc et arcu ornare tempor. Etiam ac leo neque. ",
-    imgs: [imgImovel, imgImovel, imgImovel, imgImovel],
-    metragem: 60,
-    quartos: 2,
-    banheiros: 1,
-    vagas: 2,
-    precoAluguel: 1234,
-    condominio: 200,
-  },
-  {
-    id: 8,
-    nome: "Casa à venda no Amarilis",
-    tipo: 0,
-    bairro: "Laranjal",
-    cidade: "Pelotas, RS",
-    descricao:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id porta lacus, non accumsan nunc. Praesent eu odio enim. Vivamus at semper ex. Vivamus in orci at lacus aliquet lacinia. Nunc hendrerit sagittis vulputate. Aenean pharetra tortor at magna pharetra auctor. Donec non nunc et arcu ornare tempor. Etiam ac leo neque. ",
-    imgs: [imgImovel, imgImovel, imgImovel, imgImovel],
-    metragem: 60,
-    quartos: 2,
-    banheiros: 1,
-    vagas: 2,
-    precoVenda: 300000,
-    precoAluguel: 1000,
-    condominio: 200,
-  },
-  {
-    id: 9,
-    nome: "Casa à venda no Amarilis",
-    tipo: 0,
-    bairro: "Laranjal",
-    cidade: "Pelotas, RS",
-    descricao:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id porta lacus, non accumsan nunc. Praesent eu odio enim. Vivamus at semper ex. Vivamus in orci at lacus aliquet lacinia. Nunc hendrerit sagittis vulputate. Aenean pharetra tortor at magna pharetra auctor. Donec non nunc et arcu ornare tempor. Etiam ac leo neque. ",
-    imgs: [imgImovel, imgImovel, imgImovel, imgImovel],
-    metragem: 60,
-    quartos: 2,
-    banheiros: 1,
-    vagas: 2,
-    precoVenda: 300000,
-    condominio: 200,
-  },
-  {
-    id: 10,
-    nome: "Casa à venda no Amarilis",
-    tipo: 0,
-    bairro: "Laranjal",
-    cidade: "Pelotas, RS",
-    descricao:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id porta lacus, non accumsan nunc. Praesent eu odio enim. Vivamus at semper ex. Vivamus in orci at lacus aliquet lacinia. Nunc hendrerit sagittis vulputate. Aenean pharetra tortor at magna pharetra auctor. Donec non nunc et arcu ornare tempor. Etiam ac leo neque. ",
-    imgs: [imgImovel, imgImovel, imgImovel, imgImovel],
-    metragem: 60,
-    quartos: 2,
-    banheiros: 1,
-    vagas: 2,
-    precoVenda: 300000,
-    condominio: 200,
-  },
-];
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -180,6 +16,14 @@ function App() {
     style: "currency",
     currency: "BRL",
   });
+
+  const [imoveis, setImoveis] = useState([]);
+
+  useEffect(() => {
+    if (localStorage.getItem("imoveisStorage")) {
+      setImoveis(JSON.parse(localStorage.getItem("imoveisStorage")));
+    }
+  }, []);
 
   return (
     <>
@@ -212,7 +56,13 @@ function App() {
 
           <Route
             path="/publicar"
-            element={<Publicar isLoggedIn={isLoggedIn} />}
+            element={
+              <Publicar
+                isLoggedIn={isLoggedIn}
+                imoveis={imoveis}
+                onSetImoveis={setImoveis}
+              />
+            }
           />
         </Routes>
       </BrowserRouter>
