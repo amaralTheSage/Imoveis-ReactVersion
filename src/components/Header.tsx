@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import viteSvg from "../assets/house.png";
 
-export default function Header({ isLoggedIn }) {
+export default function Header({ isLoggedIn, isAdmin }) {
   return (
     <header className="flex justify-between px-4 py-5 text-md">
       <Link to={"/"}>
@@ -17,6 +17,14 @@ export default function Header({ isLoggedIn }) {
             className="py-1 px-2  text-white rounded-md bg-orange lg:px-6"
           >
             Publicar
+          </Link>
+        )}
+        {isAdmin == true && (
+          <Link
+            to={"/reviewPosts"}
+            className="py-1 px-2  text-white rounded-md bg-green-400 lg:px-6"
+          >
+            Analisar Pedidos
           </Link>
         )}
         <>

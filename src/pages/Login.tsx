@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import Footer from "../components/Footer";
 import viteSvg from "../assets/house.png";
 import arrowIcon from "../public/arrow-icon.png";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 
-function Login({ onSetIsLoggedIn }) {
+function Login({ onSetIsLoggedIn, onSetIsAdmin }) {
   const navigate = useNavigate();
+
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
 
   return (
     <>
@@ -21,8 +24,16 @@ function Login({ onSetIsLoggedIn }) {
         <form
           action=""
           className="flex flex-col items-center mx-3 gap-4 font-light text-xl lg:text-2xl"
-          onSubmit={() => {
-            onSetIsLoggedIn(true);
+          onSubmit={(e) => {
+            e.preventDefault();
+            if (password == "admin" && email == "admin@gmail.com") {
+              onSetIsAdmin(true);
+              onSetIsLoggedIn(false);
+            } else {
+              onSetIsLoggedIn(true);
+              onSetIsAdmin(false);
+            }
+
             navigate("/");
           }}
         >
@@ -30,14 +41,21 @@ function Login({ onSetIsLoggedIn }) {
             type="email"
             placeholder="Email"
             className="border-[0.5px] border-orange py-2 px-3 rounded-t-lg"
+            onChange={(e) => setEmail(e.target.value)}
           />
           <input
             type="password"
             placeholder="Senha"
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
             className="border-[0.5px] border-orange py-2 px-3 rounded-b-lg"
           />
 
-          <button className="text-center bg-orange text-white rounded-lg w-full py-2 mt-4 font-medium">
+          <button
+            type="submit"
+            className="text-center bg-orange text-white rounded-lg w-full py-2 mt-4 font-medium"
+          >
             Entrar
           </button>
         </form>

@@ -5,7 +5,7 @@ import arrowIcon from "../public/arrow-icon.png";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 
-function Register({ onSetIsAdmin }) {
+function Register({ onSetIsLoggedIn }) {
   const navigate = useNavigate();
 
   return (
@@ -22,7 +22,7 @@ function Register({ onSetIsAdmin }) {
           action=""
           className="flex flex-col items-center mx-3 gap-4 font-light text-xl lg:text-2xl"
           onSubmit={() => {
-            onSetIsAdmin(true);
+            onSetIsLoggedIn(true);
             navigate("/");
           }}
         >

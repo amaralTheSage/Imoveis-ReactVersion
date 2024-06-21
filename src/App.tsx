@@ -7,8 +7,7 @@ import { useEffect, useState } from "react";
 import Login from "./pages/Login";
 import Publicar from "./pages/Publicar";
 import Register from "./pages/Register";
-
-
+import AdminApprovalPage from "./pages/AdminApprovalPage";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -18,6 +17,8 @@ function App() {
   });
 
   const [imoveis, setImoveis] = useState([]);
+  const [aprovados, setAprovados] = useState([]);
+  const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
     if (localStorage.getItem("imoveisStorage")) {
@@ -31,7 +32,13 @@ function App() {
         <Routes>
           <Route
             path="/"
-            element={<Home imoveis={imoveis} isLoggedIn={isLoggedIn} />}
+            element={
+              <Home
+                aprovados={aprovados}
+                isLoggedIn={isLoggedIn}
+                isAdmin={isAdmin}
+              />
+            }
           />
           <Route
             path="/imovel"
@@ -45,13 +52,22 @@ function App() {
             }
           />
           <Route
+            path="/reviewPosts"
+            element={<AdminApprovalPage isLoggedIn={isLoggedIn} />}
+          />
+          <Route
             path="/login"
-            element={<Login onSetIsLoggedIn={setIsLoggedIn} />}
+            element={
+              <Login
+                onSetIsLoggedIn={setIsLoggedIn}
+                onSetIsAdmin={setIsAdmin}
+              />
+            }
           />
 
           <Route
             path="/register"
-            element={<Register onSetIsAdmin={setIsLoggedIn} />}
+            element={<Register onSetIsLoggedIn={setIsLoggedIn} />}
           />
 
           <Route
