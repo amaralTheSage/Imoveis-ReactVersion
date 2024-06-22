@@ -1,5 +1,7 @@
 College project:
+
 Techs: ReactJS with TypeScript, TailwindCSS;
+
 Design (Figma) and code made by me.
 
 Responsive property selling/renting website which would work simply as a way for property owners and possible buyers/renters to find each other, link up, and negotiate.
