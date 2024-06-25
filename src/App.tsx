@@ -24,6 +24,10 @@ function App() {
     if (localStorage.getItem("imoveisStorage")) {
       setImoveis(JSON.parse(localStorage.getItem("imoveisStorage")));
     }
+
+    if (localStorage.getItem("aprovadosStorage")) {
+      setAprovados(JSON.parse(localStorage.getItem("aprovadosStorage")));
+    }
   }, []);
 
   return (
@@ -56,8 +60,10 @@ function App() {
             element={
               <AdminApprovalPage
                 isLoggedIn={isLoggedIn}
+                onSetImoveis={setImoveis}
                 aprovados={aprovados}
                 imoveis={imoveis}
+                isAdmin={isAdmin}
                 onSetAprovados={setAprovados}
               />
             }
