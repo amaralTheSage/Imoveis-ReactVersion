@@ -10,6 +10,7 @@ function ToBeApproved({
   onSetImoveis,
   aprovados,
   onSetAprovados,
+  onAprovar,
 }) {
   useEffect(() => {
     localStorage.setItem("aprovadosStorage", JSON.stringify(aprovados));
@@ -59,29 +60,30 @@ function ToBeApproved({
           <button
             className="px-5 py-1 bg-green-500 text-white rounded-md"
             onClick={() => {
-              onSetImoveis(imoveis.splice(index, 1));
+              onAprovar();
+              // onSetImoveis(imoveis.splice(index, 1));
 
-              const aprovados2 = [...aprovados];
-              aprovados2.push({
-                id: property.id,
-                nome: property.nome,
-                tipo: property.tipo,
-                bairro: property.bairro,
-                cidade: property.cidade,
-                descricao: property.descricao,
-                imgs: [property.img],
-                metragem: property.metragem,
-                quartos: property.quartos,
-                banheiros: property.banheiros,
-                vagas: property.vagas,
-                precoVenda: property.precoVenda,
-                precoAluguel: property.precoAluguel,
-                condominio: property.condominio,
-              });
+              // const aprovados2 = [...aprovados];
+              // aprovados2.push({
+              //   id: property.id,
+              //   nome: property.nome,
+              //   tipo: property.tipo,
+              //   bairro: property.bairro,
+              //   cidade: property.cidade,
+              //   descricao: property.descricao,
+              //   imgs: [property.img],
+              //   metragem: property.metragem,
+              //   quartos: property.quartos,
+              //   banheiros: property.banheiros,
+              //   vagas: property.vagas,
+              //   precoVenda: property.precoVenda,
+              //   precoAluguel: property.precoAluguel,
+              //   condominio: property.condominio,
+              // });
 
-              onSetAprovados(aprovados2);
+              // onSetAprovados(aprovados2);
 
-              console.log(imoveis, aprovados);
+              // console.log(imoveis, aprovados);
             }}
           >
             Aprovar

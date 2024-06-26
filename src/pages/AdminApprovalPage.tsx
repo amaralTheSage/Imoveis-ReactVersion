@@ -19,6 +19,26 @@ function AdminApprovalPage({
         {imoveis.map((imovel: Imovel) => {
           const index = imoveis.findIndex((x) => x.id == imovel.id);
 
+          const handleAprovar = (imovelId) => {
+            // Encontra o índice do imóvel a ser aprovado
+            const index = imoveis.findIndex((imovel) => imovel.id === imovelId);
+
+            if (index !== -1) {
+              // Atualiza o estado 'aprovados'
+              const novoAprovados = [...aprovados, imoveis[index]];
+
+              // Atualiza o estado 'imoveis' removendo o item aprovado
+              const novosImoveis = [
+                ...imoveis.slice(0, index),
+                ...imoveis.slice(index + 1),
+              ];
+
+              // Chama as funções de atualização de estado
+              onSetAprovados(novoAprovados);
+              onSetImoveis(novosImoveis);
+            }
+          };
+
           return (
             <ToBeApproved
               onSetAprovados={onSetAprovados}
@@ -26,6 +46,7 @@ function AdminApprovalPage({
               property={imovel}
               imoveis={imoveis}
               aprovados={aprovados}
+              onAprovar={() => handleAprovar(imovel.id)}
               index={index}
               key={imovel.id}
             />
