@@ -18,7 +18,7 @@ function App() {
 
   const [imoveis, setImoveis] = useState([]);
   const [aprovados, setAprovados] = useState([]);
-  const [isAdmin, setIsAdmin] = useState(true);
+  const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
     if (localStorage.getItem("imoveisStorage")) {

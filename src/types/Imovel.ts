@@ -1,5 +1,5 @@
 export type Imovel = {
-  id: number;
+  id: string;
   nome: string;
   tipo: number;
   bairro: string;

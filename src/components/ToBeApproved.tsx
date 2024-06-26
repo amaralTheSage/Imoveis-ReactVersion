@@ -12,10 +12,6 @@ function ToBeApproved({
   onSetAprovados,
   onAprovar,
 }) {
-  useEffect(() => {
-    localStorage.setItem("aprovadosStorage", JSON.stringify(aprovados));
-  }, [aprovados]);
-
   return (
     <div className=" w-[570px] flex gap-2 shadow-lg rounded-md m-auto">
       <img
