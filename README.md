@@ -12,3 +12,5 @@ When logged in, they get to publish properties that will then await approval by 
 The user can then login into the admin account (email: admin@gmail.com, password: admin);
 When acting as an admin, they get access to a property review page, where they can approve of their own properties' publishing;
 When approved, properties will be saved to the local storage and will show up on the main page.
+
+ps: I pushed some changes to the repo from a PC at college and turns out another account was logged in so now this guy is forever listed as a contributor lol
