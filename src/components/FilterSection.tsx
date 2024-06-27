@@ -1,4 +1,3 @@
-import React from "react";
 import heroPng from "../assets/hero2.png";
 
 export default function FilterSection() {

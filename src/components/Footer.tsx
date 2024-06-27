@@ -1,6 +1,4 @@
-import { Link } from "react-router-dom";
 import viteSvg from "../assets/house.png";
-import React from "react";
 
 function Footer() {
   return (

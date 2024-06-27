@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import FilterSection from "../components/FilterSection";
 import Header from "../components/Header";
 import PropertyCard from "../components/PropertyCard";
+import { Imovel } from "../types/Imovel";
 
 export default function Home({ isLoggedIn, aprovados, isAdmin }) {
   return (
@@ -14,8 +15,8 @@ export default function Home({ isLoggedIn, aprovados, isAdmin }) {
           Imóveis à Venda
         </h2>
         <section className="grid grid-flexivel gap-3 mx-8 lg:mx-0">
-          {aprovados.map((i) => {
-            return <PropertyCard imovel={i} />;
+          {aprovados.map((i: Imovel) => {
+            return <PropertyCard imovel={i} key={i.id} />;
           })}
         </section>
       </div>

@@ -1,8 +1,7 @@
 import Home from "./pages/Home";
-import { Route, Routes } from "react-router";
+import { Route, Routes, useLocation } from "react-router";
 import { BrowserRouter } from "react-router-dom";
 import PaginaImovel from "./pages/PaginaImovel";
-import imgImovel from "./assets/imgImóvel.png";
 import { useEffect, useState } from "react";
 import Login from "./pages/Login";
 import Publicar from "./pages/Publicar";
@@ -11,22 +10,25 @@ import AdminApprovalPage from "./pages/AdminApprovalPage";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const BRL = new Intl.NumberFormat("pt-BR", {
-    style: "currency",
-    currency: "BRL",
+  const [isAdmin, setIsAdmin] = useState(true);
+
+  const [imoveis, setImoveis] = useState(() => {
+    const saved = localStorage.getItem("imoveisStorage");
+    return saved ? JSON.parse(saved) : [];
   });
 
-  const [imoveis, setImoveis] = useState([]);
-  const [aprovados, setAprovados] = useState([]);
-  const [isAdmin, setIsAdmin] = useState(false);
+  const [aprovados, setAprovados] = useState(() => {
+    const saved = localStorage.getItem("aprovadosStorage");
+    return saved ? JSON.parse(saved) : [];
+  });
 
   useEffect(() => {
     if (localStorage.getItem("imoveisStorage")) {
-      setImoveis(JSON.parse(localStorage.getItem("imoveisStorage")));
+      setImoveis(JSON.parse(localStorage.getItem("imoveisStorage")!));
     }
 
     if (localStorage.getItem("aprovadosStorage")) {
-      setAprovados(JSON.parse(localStorage.getItem("aprovadosStorage")));
+      setAprovados(JSON.parse(localStorage.getItem("aprovadosStorage")!));
     }
   }, []);
 
@@ -49,9 +51,8 @@ function App() {
             element={
               <PaginaImovel
                 imoveis={imoveis}
-                imovel={imoveis[0]}
+                isAdmin={isAdmin}
                 isLoggedIn={isLoggedIn}
-                BRL={BRL}
               />
             }
           />
@@ -89,6 +90,7 @@ function App() {
               <Publicar
                 isLoggedIn={isLoggedIn}
                 imoveis={imoveis}
+                isAdmin={isAdmin}
                 onSetImoveis={setImoveis}
               />
             }
@@ -100,4 +102,3 @@ function App() {
 }
 
 export default App;
-// className="min-[790px]:grid grid-cols-2 gap-2 lg:grid-cols-3 xl:grid-cols-4 2xl: grid-cols-5"

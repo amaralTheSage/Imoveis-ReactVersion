@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import PropertyCard from "../components/PropertyCard";
@@ -8,26 +7,35 @@ import bathtubIcon from "../public/bathtub-icon.png";
 import carIcon from "../public/car-icon.png";
 import rulerIcon from "../public/ruler-icon.png";
 import mapIcon from "../public/map-icon.svg";
-import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import { Imovel } from "../types/Imovel";
+import { BRL } from "../tools/BRL";
 
-export default function PaginaImovel({ imoveis, imovel, isLoggedIn, BRL }) {
+export default function PaginaImovel({ imoveis, isLoggedIn, isAdmin }) {
+  const location = useLocation();
+
+  const imovel: Imovel = imoveis.find(
+    (obj: Imovel) => (obj.id = location.state.id)
+  );
+  console.table(imovel);
+
   return (
     <>
-      <Header isLoggedIn={isLoggedIn} />
+      <Header isAdmin={isAdmin} isLoggedIn={isLoggedIn} />
 
       {/*wrapper */}
       <main className="lg:max-w-[80%] m-auto lg:mt-12 ">
         <section className="px-4 lg:flex  justify-center gap-6">
           <div className="flex flex-col items-center ">
-            <img src={imgImovel} alt="" className="mb-1 w-full" />
+            <img src={imovel.img} className="mb-1 w-full" />
 
             <div className="grid grid-cols-3  gap-1 md:text-2xl">
-              <img src={imgImovel} alt="" className="" />
-              <img src={imgImovel} alt="" className="" />
+              <img src={imgImovel} />
+              <img src={imgImovel} />
               <div className="w-full text-center">
-                <img src={imgImovel} alt="" className="brightness-50 " />
+                <img src={imgImovel} className="brightness-50 " />
                 <p className="relative bottom-1/2 flex my-1 gap-1  text-white justify-center">
-                  {imovel.imgs.length - 3} mais fotos
+                  3 mais fotos
                 </p>
               </div>
             </div>
@@ -35,30 +43,30 @@ export default function PaginaImovel({ imoveis, imovel, isLoggedIn, BRL }) {
 
           <div className="flex flex-col gap-4 lg:gap-6 mb-4 lg:max-w-[600px]">
             <h2 className="font-medium text-2xl xl:text-3xl">{imovel.nome}</h2>
-            <p className="text-light-gray text-sm xl:text-lg">
+            <p className="text-light-gray text-sm xl:text-lg ">
               {imovel.descricao}
             </p>
             <ul className="flex flex-wrap font-medium xl:text-lg ">
               <li className="w-full flex gap-1 items-center">
-                <img src={mapIcon} alt="" className="w-6" /> Bairro:
-                {imovel.bairro} -{imovel.cidade}
+                <img src={mapIcon} className="w-6" /> Bairro:
+                {imovel.bairro} - Pelotas
               </li>
               <li className="w-1/2 flex my-1 relative right-[2px] gap-1 items-center ">
-                <img src={rulerIcon} alt="" className=" w-6" />
+                <img src={rulerIcon} className=" w-6" />
                 {imovel.metragem}m² úteis
               </li>
               <li className="w-1/2 flex my-1 gap-1 items-center ">
-                <img src={bedIcon} alt="" className="w-6" />
+                <img src={bedIcon} className="w-6" />
                 {imovel.quartos}
                 {imovel.quartos == 1 ? " Quarto" : " Quartos"}
               </li>
               <li className="w-1/2 flex my-1 gap-1 items-center ">
-                <img src={bathtubIcon} alt="" className="w-5" />
+                <img src={bathtubIcon} className="w-5" />
                 {imovel.banheiros}
                 {imovel.banheiros == 1 ? " Banheiro" : " Banheiros"}
               </li>
               <li className="w-1/2 flex my-1 gap-1 items-center ">
-                <img src={carIcon} alt="" className="w-6" />
+                <img src={carIcon} className="w-6" />
                 {imovel.vagas}
                 {imovel.vagas == 1 ? " Vaga" : " Vagas"}
               </li>
@@ -95,11 +103,11 @@ export default function PaginaImovel({ imoveis, imovel, isLoggedIn, BRL }) {
                 Interessado? Nos chame por WhatsApp ou Email:
               </h4>
               <a href="">
-                <img src="#" alt="" />
+                <img src="#" />
                 53 9999-9999
               </a>
               <a href="">
-                <img src="#" alt="" />
+                <img src="#" />
                 emailabcd@hotmail.com
               </a>
 
@@ -115,7 +123,7 @@ export default function PaginaImovel({ imoveis, imovel, isLoggedIn, BRL }) {
           Veja Outros Imóveis à Venda
         </h3>
         <div className="grid grid-flexivel gap-3 mx-8 lg:mx-0">
-          {imoveis.slice(1).map((i) => {
+          {imoveis.slice(1).map((i: Imovel) => {
             return <PropertyCard imovel={i} key={i.id} />;
           })}
         </div>

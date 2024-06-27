@@ -1,15 +1,24 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Imovel } from "../types/Imovel";
 import { CheckTipo } from "../tools/CheckTipo";
 import { BRL } from "../tools/BRL";
 
 function PropertyCard({ imovel }: { imovel: Imovel }) {
+  const navigate = useNavigate();
+
   return (
-    <Link to={"/imovel"}>
+    <div
+      onClick={() => {
+        navigate("/imovel", {
+          state: {
+            id: imovel.id,
+          },
+        });
+      }}
+    >
       <div className="rounded-md shadow-md my-2 text-lg min-h-[410px] lg:min-h-[445px]">
         <img
-          src={imovel.imgs[0]}
+          src={imovel.img}
           className="rounded-t-md w-full object-cover aspect-[14/9]"
         />
         <div className="p-2 flex flex-col gap-1">
@@ -47,7 +56,7 @@ function PropertyCard({ imovel }: { imovel: Imovel }) {
           </div>
         </div>
       </div>
-    </Link>
+    </div>
   );
 }
 

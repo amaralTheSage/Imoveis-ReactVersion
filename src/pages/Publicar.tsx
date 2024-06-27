@@ -5,20 +5,25 @@ import { Field, Form, Formik, useFormik } from "formik";
 import * as Yup from "yup";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
+import { Imovel } from "../types/Imovel";
 
-export default function Publicar({ isLoggedIn, imoveis, onSetImoveis }) {
+export default function Publicar({
+  isLoggedIn,
+  imoveis,
+  onSetImoveis,
+  isAdmin,
+}) {
   const { register, handleSubmit, reset, setFocus } = useForm();
 
-  function registerProperty(data) {
+  function registerProperty(data: Imovel) {
     const properties = [...imoveis];
     properties.push({
       id: crypto.randomUUID(),
       nome: data.nome,
       tipo: data.tipo,
       bairro: data.bairro,
-      cidade: data.cidade,
       descricao: data.descricao,
-      imgs: [data.img],
+      img: data.img,
       metragem: data.metragem,
       quartos: data.quartos,
       banheiros: data.banheiros,
@@ -38,7 +43,7 @@ export default function Publicar({ isLoggedIn, imoveis, onSetImoveis }) {
 
   return (
     <>
-      <Header isLoggedIn={isLoggedIn} />
+      <Header isAdmin={isAdmin} isLoggedIn={isLoggedIn} />
 
       <div className="max-w-[90vw] lg:max-w-[50vw] m-auto">
         <h3 className="font-medium text-2xl mb-3">Novo Imóvel:</h3>
@@ -70,12 +75,6 @@ export default function Publicar({ isLoggedIn, imoveis, onSetImoveis }) {
             >
               Descrição :
             </label>
-            {/* <input
-              type="text"
-              required
-              id="descricao"
-              className="block border border-orange border-opacity-50 rounded-[4px] px-2 py-1 w-full md:h-28"
-            /> */}
             <textarea
               id="descricao"
               cols={30}
@@ -225,10 +224,7 @@ export default function Publicar({ isLoggedIn, imoveis, onSetImoveis }) {
           </div>
 
           <div>
-            <label
-              htmlFor="imgs"
-              className="text-light-gray font-light text-lg"
-            >
+            <label htmlFor="img" className="text-light-gray font-light text-lg">
               Imagens :
             </label>
             <input

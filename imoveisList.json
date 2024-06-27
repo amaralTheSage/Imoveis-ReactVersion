@@ -1,14 +1,12 @@
 [
   {
-    "id": 1,
+    "id": "1",
     "nome": "Casa à venda no Amarilis",
     "tipo": 0,
     "bairro": "Laranjal",
     "cidade": "Pelotas, RS",
     "descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id porta lacus, non accumsan nunc. Praesent eu odio enim. Vivamus at semper ex. Vivamus in orci at lacus aliquet lacinia. Nunc hendrerit sagittis vulputate. Aenean pharetra tortor at magna pharetra auctor. Donec non nunc et arcu ornare tempor. Etiam ac leo neque. ",
-    "imgs": [
-      "https://www.superimoveisprime.com.br/uploads/imovel/galeria/big-199098960827ac6e46c722eaa9bd4674.jpg"
-    ],
+    "img": "https://www.plantapronta.com.br/projetos/161/01.jpg",
     "metragem": 60,
     "quartos": 2,
     "banheiros": 1,
@@ -17,15 +15,13 @@
     "condominio": 200
   },
   {
-    "id": 2,
+    "id": "2",
     "nome": "Casa à venda no Laranjal",
     "tipo": 0,
     "bairro": "Laranjal",
     "cidade": "Pelotas, RS",
     "descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id porta lacus, non accumsan nunc. Praesent eu odio enim. Vivamus at semper ex. Vivamus in orci at lacus aliquet lacinia. Nunc hendrerit sagittis vulputate. Aenean pharetra tortor at magna pharetra auctor. Donec non nunc et arcu ornare tempor. Etiam ac leo neque. ",
-    "imgs": [
-      "https://www.jwsimoveis.imb.br/uploads/imovel/galeria/big-7fff04344ddbe7b80c6dbbccdbe6909b.jpeg"
-    ],
+    "img": "https://www.jwsimoveis.imb.br/uploads/imovel/galeria/big-7fff04344ddbe7b80c6dbbccdbe6909b.jpeg",
     "metragem": 60,
     "quartos": 2,
     "banheiros": 1,
@@ -34,15 +30,13 @@
     "condominio": 200
   },
   {
-    "id": 3,
+    "id": "3",
     "nome": "Casa à venda no Laranjal",
     "tipo": 0,
     "bairro": "Laranjal",
     "cidade": "Pelotas, RS",
     "descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id porta lacus, non accumsan nunc. Praesent eu odio enim. Vivamus at semper ex. Vivamus in orci at lacus aliquet lacinia. Nunc hendrerit sagittis vulputate. Aenean pharetra tortor at magna pharetra auctor. Donec non nunc et arcu ornare tempor. Etiam ac leo neque. ",
-    "imgs": [
-      "https://s01.jetimgs.com/trtuw6Mrb8ly2MbuVI7lZh2y_LueE62RbI__0d80abIDN2LtE5WFeORHE3vYt1F2b1MTXkotwVN6vtbuQgvKkdUMcmWdqbmJMugc4e9FRy0GF8PYnyMKXC57EO_70y8tgi7TQUmqKe5iZ_ioWhkgAxBkUfNGnba0zfAmzfU/53013c92-4635-44b4-adea-adf16a9adba8.jpg"
-    ],
+    "img": "https://s01.jetimgs.com/trtuw6Mrb8ly2MbuVI7lZh2y_LueE62RbI__0d80abIDN2LtE5WFeORHE3vYt1F2b1MTXkotwVN6vtbuQgvKkdUMcmWdqbmJMugc4e9FRy0GF8PYnyMKXC57EO_70y8tgi7TQUmqKe5iZ_ioWhkgAxBkUfNGnba0zfAmzfU/53013c92-4635-44b4-adea-adf16a9adba8.jpg",
     "metragem": 60,
     "quartos": 2,
     "banheiros": 1,
@@ -51,15 +45,13 @@
     "condominio": 200
   },
   {
-    "id": 4,
+    "id": "4",
     "nome": "Casa à venda no Amarilis",
     "tipo": 0,
     "bairro": "Laranjal",
     "cidade": "Pelotas, RS",
     "descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id porta lacus, non accumsan nunc. Praesent eu odio enim. Vivamus at semper ex. Vivamus in orci at lacus aliquet lacinia. Nunc hendrerit sagittis vulputate. Aenean pharetra tortor at magna pharetra auctor. Donec non nunc et arcu ornare tempor. Etiam ac leo neque. ",
-    "imgs": [
-      "https://www.superimoveisprime.com.br/uploads/imovel/galeria/big-199098960827ac6e46c722eaa9bd4674.jpg"
-    ],
+    "img": "https://www.superimoveisprime.com.br/uploads/imovel/galeria/big-199098960827ac6e46c722eaa9bd4674.jpg",
     "metragem": 60,
     "quartos": 2,
     "banheiros": 1,
@@ -68,15 +60,13 @@
     "condominio": 200
   },
   {
-    "id": 5,
+    "id": "5",
     "nome": "Casa à venda no Laranjal",
     "tipo": 0,
     "bairro": "Laranjal",
     "cidade": "Pelotas, RS",
     "descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id porta lacus, non accumsan nunc. Praesent eu odio enim. Vivamus at semper ex. Vivamus in orci at lacus aliquet lacinia. Nunc hendrerit sagittis vulputate. Aenean pharetra tortor at magna pharetra auctor. Donec non nunc et arcu ornare tempor. Etiam ac leo neque. ",
-    "imgs": [
-      "https://www.jwsimoveis.imb.br/uploads/imovel/galeria/big-7fff04344ddbe7b80c6dbbccdbe6909b.jpeg"
-    ],
+    "img": "https://www.jwsimoveis.imb.br/uploads/imovel/galeria/big-7fff04344ddbe7b80c6dbbccdbe6909b.jpeg",
     "metragem": 60,
     "quartos": 2,
     "banheiros": 1,
@@ -85,15 +75,13 @@
     "condominio": 200
   },
   {
-    "id": 6,
+    "id": "6",
     "nome": "Casa à venda no Laranjal",
     "tipo": 0,
     "bairro": "Laranjal",
     "cidade": "Pelotas, RS",
     "descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id porta lacus, non accumsan nunc. Praesent eu odio enim. Vivamus at semper ex. Vivamus in orci at lacus aliquet lacinia. Nunc hendrerit sagittis vulputate. Aenean pharetra tortor at magna pharetra auctor. Donec non nunc et arcu ornare tempor. Etiam ac leo neque. ",
-    "imgs": [
-      "https://s01.jetimgs.com/trtuw6Mrb8ly2MbuVI7lZh2y_LueE62RbI__0d80abIDN2LtE5WFeORHE3vYt1F2b1MTXkotwVN6vtbuQgvKkdUMcmWdqbmJMugc4e9FRy0GF8PYnyMKXC57EO_70y8tgi7TQUmqKe5iZ_ioWhkgAxBkUfNGnba0zfAmzfU/53013c92-4635-44b4-adea-adf16a9adba8.jpg"
-    ],
+    "img": "https://resizedimgs.vivareal.com/crop/286x200/named.images.sp/ccbef5106927f10bcf3c958231c02ba0/foto-1-de-casa-com-3-quartos-a-venda-400m-em-laranjal-pelotas.webp",
     "metragem": 60,
     "quartos": 2,
     "banheiros": 1,

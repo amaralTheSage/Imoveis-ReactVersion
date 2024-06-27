@@ -4,7 +4,7 @@ export type Imovel = {
   tipo: number;
   bairro: string;
   descricao: string;
-  imgs: string[];
+  img: string;
   metragem: number;
   quartos: number;
   banheiros: number;

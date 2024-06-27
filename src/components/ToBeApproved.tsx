@@ -1,21 +1,11 @@
-import { useEffect } from "react";
 import { BRL } from "../tools/BRL";
 import { CheckTipo } from "../tools/CheckTipo";
-import { Imovel } from "../types/Imovel";
 
-function ToBeApproved({
-  property,
-  imoveis,
-  index,
-  onSetImoveis,
-  aprovados,
-  onSetAprovados,
-  onAprovar,
-}) {
+function ToBeApproved({ property, onAprovar, onRejeitar }) {
   return (
     <div className=" w-[570px] flex gap-2 shadow-lg rounded-md m-auto">
       <img
-        src={property.imgs[0]}
+        src={property.img}
         alt={property.nome}
         className="w-[45%] aspect-[14/9] object-cover rounded-l-md"
       />
@@ -57,34 +47,17 @@ function ToBeApproved({
             className="px-5 py-1 bg-green-500 text-white rounded-md"
             onClick={() => {
               onAprovar();
-              // onSetImoveis(imoveis.splice(index, 1));
-
-              // const aprovados2 = [...aprovados];
-              // aprovados2.push({
-              //   id: property.id,
-              //   nome: property.nome,
-              //   tipo: property.tipo,
-              //   bairro: property.bairro,
-              //   cidade: property.cidade,
-              //   descricao: property.descricao,
-              //   imgs: [property.img],
-              //   metragem: property.metragem,
-              //   quartos: property.quartos,
-              //   banheiros: property.banheiros,
-              //   vagas: property.vagas,
-              //   precoVenda: property.precoVenda,
-              //   precoAluguel: property.precoAluguel,
-              //   condominio: property.condominio,
-              // });
-
-              // onSetAprovados(aprovados2);
-
-              // console.log(imoveis, aprovados);
             }}
           >
             Aprovar
           </button>
-          <button className="px-5 py-1 bg-red-500 text-white rounded-md">
+
+          <button
+            className="px-5 py-1 bg-red-500 text-white rounded-md"
+            onClick={() => {
+              onRejeitar();
+            }}
+          >
             Rejeitar
           </button>
         </div>
