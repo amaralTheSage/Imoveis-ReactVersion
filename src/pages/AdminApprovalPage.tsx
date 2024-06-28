@@ -21,6 +21,10 @@ function AdminApprovalPage({
     localStorage.setItem("imoveisStorage", JSON.stringify(imoveis));
   }, [imoveis]);
 
+  useEffect(() => {
+    console.table(aprovados);
+  }, [aprovados, imoveis]);
+
   function handleAprovar(imovelId: string) {
     const index = imoveis.findIndex((imovel: Imovel) => imovel.id === imovelId);
     if (index >= 0) {

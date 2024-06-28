@@ -10,15 +10,32 @@ import mapIcon from "../public/map-icon.svg";
 import { useLocation } from "react-router-dom";
 import { Imovel } from "../types/Imovel";
 import { BRL } from "../tools/BRL";
+import { Dispatch, SetStateAction, useState } from "react";
 
-export default function PaginaImovel({ imoveis, isLoggedIn, isAdmin }) {
+export default function PaginaImovel({ aprovados, isLoggedIn, isAdmin }) {
   const location = useLocation();
 
-  const imovel: Imovel = imoveis.find(
-    (obj: Imovel) => (obj.id = location.state.id)
+  const [imovel]: [Imovel, Dispatch<SetStateAction<Imovel>>] = useState(
+    aprovados.find((obj: Imovel) => (obj.id = location.state.id))
   );
-  console.table(imovel);
 
+  // const imovel = aprovados.find((obj: Imovel) => (obj.id = location.state.id))
+
+  console.log(
+    "Imovel: ",
+    imovel.id,
+    "\nlocation id:",
+    location.state.id,
+    "\nAprovados: ",
+    aprovados
+  );
+
+  const index = aprovados.findIndex((i: Imovel) => i.id === imovel.id);
+
+  const novasRecomendacoes = [
+    ...aprovados.slice(0, index),
+    ...aprovados.slice(index + 1),
+  ];
   return (
     <>
       <Header isAdmin={isAdmin} isLoggedIn={isLoggedIn} />
@@ -123,7 +140,7 @@ export default function PaginaImovel({ imoveis, isLoggedIn, isAdmin }) {
           Veja Outros Imóveis à Venda
         </h3>
         <div className="grid grid-flexivel gap-3 mx-8 lg:mx-0">
-          {imoveis.slice(1).map((i: Imovel) => {
+          {novasRecomendacoes.map((i: Imovel) => {
             return <PropertyCard imovel={i} key={i.id} />;
           })}
         </div>

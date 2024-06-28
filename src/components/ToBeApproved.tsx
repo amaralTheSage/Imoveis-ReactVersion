@@ -1,7 +1,14 @@
 import { BRL } from "../tools/BRL";
 import { CheckTipo } from "../tools/CheckTipo";
+import { Imovel } from "../types/Imovel";
 
-function ToBeApproved({ property, onAprovar, onRejeitar }) {
+function ToBeApproved({
+  property,
+  onAprovar,
+  onRejeitar,
+}: {
+  property: Imovel;
+}) {
   return (
     <div className=" w-[570px] flex gap-2 shadow-lg rounded-md m-auto">
       <img

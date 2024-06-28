@@ -1,5 +1,5 @@
 import Home from "./pages/Home";
-import { Route, Routes, useLocation } from "react-router";
+import { Route, Routes } from "react-router";
 import { BrowserRouter } from "react-router-dom";
 import PaginaImovel from "./pages/PaginaImovel";
 import { useEffect, useState } from "react";
@@ -50,7 +50,7 @@ function App() {
             path="/imovel"
             element={
               <PaginaImovel
-                imoveis={imoveis}
+                aprovados={aprovados}
                 isAdmin={isAdmin}
                 isLoggedIn={isLoggedIn}
               />
